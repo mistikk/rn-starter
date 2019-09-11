@@ -1,0 +1,50 @@
+{
+  "name": "blockstack",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint .",
+    "lint:fix": "eslint src/ --fix",
+    "format": "prettier --print-width=100 --single-quote --trailing-comma all --write \"{src,__tests__}/**/*.js\"",
+    "lint-staged": "lint-staged",
+    "clear": "watchman watch-del-all && rm -rf $TMPDIR/react-native-packager-cache-* && rm -rf $TMPDIR/metro-bundler-cache-* && rm -rf node_modules/ && yarn cache clean && yarn && react-native start --reset-cache"
+  },
+  "dependencies": {
+    "react": "16.8.6",
+    "react-native": "0.60.5",
+    "react-native-gesture-handler": "^1.4.1",
+    "react-native-reanimated": "^1.2.0",
+    "react-native-screens": "^2.0.0-alpha.3",
+    "react-navigation": "^4.0.2",
+    "react-navigation-stack": "^1.5.4",
+    "react-redux": "^7.1.1",
+    "redux": "^4.0.4",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/runtime": "^7.6.0",
+    "@react-native-community/eslint-config": "^0.0.5",
+    "babel-jest": "^24.9.0",
+    "eslint": "^6.3.0",
+    "eslint-plugin-import": "^2.18.2",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.2.5",
+    "metro-react-native-babel-preset": "^0.56.0",
+    "pre-commit": "^1.2.2",
+    "react-test-renderer": "16.8.6"
+  },
+  "jest": {
+    "preset": "react-native"
+  },
+  "lint-staged": {
+    "*.js": [
+      "yarn run lint:fix",
+      "git add"
+    ]
+  },
+  "pre-commit": "lint-staged"
+}
